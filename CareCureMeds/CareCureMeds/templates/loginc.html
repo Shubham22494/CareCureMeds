@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare App Login</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('https://wallpapercave.com/wp/wp6938430.jpg'); 
+        background-size: cover;
+        background-position: center;
+    }
+    #login-container {
+        background-color: rgba(135, 206, 235, 0.5); 
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333333;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+        width: calc(100% - 24px);
+        padding: 12px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        border-color: #4CAF50;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .form-footer {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .form-footer a {
+        text-decoration: none;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+    .form-footer a:hover {
+        color: #45a049;
+    }
+    #logo {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+<div id="login-container">
+        {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+    <img id="logo" src="https://logodix.com/logo/1270054.png" alt="Logo"> 
+    <h2>Login to Your CareCureMeds Account</h2> 
+    <form action="login" method="post">
+        {% csrf_token %}
+        <input type="email" id="username" name="username" placeholder="username" required>
+        <input type="password" id="password" name="password" placeholder="password" required>
+        <input type="submit" >
+    </form>
+    <div class="form-footer">
+        <span>Don't have an account? <a href="registeruser">Sign up</a></span>
+    </div>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Details</h1>
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td>{{ customer.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Middle Name</td>
+            <td>{{ customer.middle_name }}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{ customer.last_name }}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{ customer.address }}</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>{{ customer.city }}</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>{{ customer.state }}</td>
+        </tr>
+        <tr>
+            <td>Zip Code</td>
+            <td>{{ customer.zip }}</td>
+        </tr>
+        <tr>
+            <td>Phone Number</td>
+            <td>{{ customer.phone_no }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ customer.email }}</td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>{{ customer.date_of_birth }}</td>
+        </tr>
+        <tr>
+            <td>Is Premium</td>
+            <td>{{ customer.isPremium }}</td>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td><img src="{{ customer.img.url }}" alt="Customer Image" style="max-width: 200px;"></td>
+        </tr>
+    </table>
+</body>
+</html>

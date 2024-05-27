@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Healthcare App Signup</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('https://wallpapercave.com/wp/wp6938430.jpg'); /* Your background image URL */
+        background-size: cover;
+        background-position: center;
+    }
+    #signup-container-wrapper {
+        width: 100%;
+        overflow: auto;
+        height: 80vh; /* Set the height of the wrapper */
+    }
+    #signup-container {
+        background-color: rgba(135, 206, 235, 0.5); /* Semi-transparent light blue */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        width: 400px;
+        text-align: center;
+        margin: 0 auto; /* Center horizontally */
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333333;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="submit"],
+    input[type="file"],
+    input[type="date"] {
+        width: calc(100% - 24px);
+        padding: 12px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="file"]:focus,
+    input[type="date"]:focus {
+        border-color: #4CAF50;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .form-footer {
+        margin-top: 20px;
+        text-align: center;
+    }
+    .form-footer a {
+        text-decoration: none;
+        color: #4CAF50;
+        font-weight: bold;
+    }
+    .form-footer a:hover {
+        color: #45a049;
+    }
+    #logo {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+<div id="signup-container-wrapper">
+    <div id="signup-container">
+        {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <img id="logo" src="https://logodix.com/logo/1270054.png" alt="Logo"> 
+        <h2>Create Your CareCureMeds Account</h2>
+        <form action="registeruser" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="middle_name" placeholder="Middle Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="state" placeholder="State" required>
+            <input type="text" name="zip" placeholder="ZIP" required>
+            <input type="text" name="phone_no" placeholder="Phone Number" required>
+            <input type="email" name="email" placeholder="Email">
+            <input type="date" name="date_of_birth" placeholder="Date of Birth" required>
+            <label for="isPremium">Premium:</label>
+            <input type="checkbox" name="isPremium" id="isPremium"> 
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="file" name="img"> 
+            <input type="Submit">
+        </form>
+        <form>
+            <div class="form-footer">
+                <span>Already have an account? <a href="loginc">Login</a></span>
+            </div>
+        </form>
+    </div>
